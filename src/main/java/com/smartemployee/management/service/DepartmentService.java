@@ -2,10 +2,11 @@ package com.smartemployee.management.service;
 
 import com.smartemployee.management.entity.Department;
 import com.smartemployee.management.repository.DepartmentRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
+@Service
 public class DepartmentService {
 
     private final DepartmentRepository departmentRepository;
