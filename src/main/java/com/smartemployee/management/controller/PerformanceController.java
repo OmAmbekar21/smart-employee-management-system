@@ -25,6 +25,12 @@ public class PerformanceController {
         return performanceService.getPerformanceById(id);
     }
 
+    @GetMapping("/performances/{id}/suggestion")
+    public String getImprovementSuggestion(@PathVariable Long id) {
+        Performance performance = performanceService.getPerformanceById(id);
+        return performanceService.getImprovementSuggestion(performance);
+    }
+
     @PostMapping("/performances")
     public Performance createPerformance(@RequestBody Performance performance) {
         return performanceService.createPerformance(performance);
@@ -34,4 +40,6 @@ public class PerformanceController {
     public void deletePerformance(@PathVariable Long id) {
         performanceService.deletePerformance(id);
     }
+
+
 }
