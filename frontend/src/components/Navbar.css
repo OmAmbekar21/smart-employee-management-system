@@ -1,0 +1,27 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+nav h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+nav div {
+  display: flex;
+  gap: 24px;
+}
+
+nav span {
+  cursor: pointer;
+  font-size: 15px;
+}
+
+nav span:hover {
+  color: #2563eb;
+}
