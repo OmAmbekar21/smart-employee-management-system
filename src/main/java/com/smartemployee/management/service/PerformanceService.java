@@ -19,6 +19,10 @@ public class PerformanceService {
         return performanceRepository.findAll();
     }
 
+    public List<Performance> getEmployeePerformanceHistory(Long employeeId) {
+        return performanceRepository.findByEmployeeIdOrderByReviewDateAsc(employeeId);
+    }
+
     public Performance getPerformanceById(Long id) {
         return performanceRepository.findById(id).orElse(null);
     }
@@ -43,6 +47,33 @@ public class PerformanceService {
         }
         else {
             return "Excellent performance. Maintain the current progress.";
+        }
+    }
+
+    public String getPerformanceTrend(Long employeeId) {
+
+        List<Performance> history =
+                performanceRepository.findByEmployeeIdOrderByReviewDateAsc(employeeId);
+
+        if (history.size() < 2) {
+            return "Not enough performance data to determine improvement.";
+        }
+
+        Performance previous = history.get(history.size() - 2);
+        Performance latest = history.get(history.size() - 1);
+
+        BigDecimal scoreChange =
+                latest.getScore().subtract(previous.getScore());
+
+        if (scoreChange.compareTo(BigDecimal.ZERO) > 0) {
+            return "Performance improved by " + scoreChange + " points.";
+        }
+        else if (scoreChange.compareTo(BigDecimal.ZERO) < 0) {
+            return "Performance decreased by " +
+                    scoreChange.abs() + " points.";
+        }
+        else {
+            return "Performance remained unchanged.";
         }
     }
 }

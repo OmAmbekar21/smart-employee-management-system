@@ -20,6 +20,11 @@ public class PerformanceController {
         return performanceService.getAllPerformances();
     }
 
+    @GetMapping("/performances/employee/{employeeId}")
+    public List<Performance> getEmployeePerformanceHistory(@PathVariable Long employeeId) {
+        return performanceService.getEmployeePerformanceHistory(employeeId);
+    }
+
     @GetMapping("/performances/{id}")
     public Performance getPerformanceById(@PathVariable Long id) {
         return performanceService.getPerformanceById(id);
@@ -41,5 +46,8 @@ public class PerformanceController {
         performanceService.deletePerformance(id);
     }
 
-
+    @GetMapping("/performances/employee/{employeeId}/trend")
+    public String getPerformanceTrend(@PathVariable Long employeeId) {
+        return performanceService.getPerformanceTrend(employeeId);
+    }
 }
