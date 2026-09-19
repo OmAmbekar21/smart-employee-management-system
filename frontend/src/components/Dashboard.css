@@ -33,7 +33,7 @@ main > div > div h3 {
   color: #374151;
 }
 
-main > div > div p {
+.dashboard-card p {
   margin: 0;
   font-size: 28px;
   font-weight: bold;

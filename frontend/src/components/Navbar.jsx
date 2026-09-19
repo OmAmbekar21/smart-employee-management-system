@@ -1,15 +1,21 @@
 import './Navbar.css'
 
-function Navbar() {
+function Navbar({ setActivePage }) {
   return (
     <nav>
       <h2>Smart Employee Management System</h2>
 
       <div>
-        <span>Dashboard</span>
+        <span onClick={() => setActivePage('dashboard')}>
+          Dashboard
+        </span>
+
+        <span onClick={() => setActivePage('events')}>
+          Events
+        </span>
+
         <span>Employees</span>
         <span>Performance</span>
-        <span>Events</span>
       </div>
     </nav>
   )
