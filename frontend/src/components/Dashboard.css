@@ -1,0 +1,49 @@
+main {
+    padding: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main h1 {
+  margin-bottom: 8px;
+}
+
+main > p {
+  color: #6b7280;
+  margin-bottom: 28px;
+}
+
+main > div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+main > div > div {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+}
+
+main > div > div h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 16px;
+  color: #374151;
+}
+
+main > div > div p {
+  margin: 0;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+main > div > div {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+main > div > div:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
