@@ -65,15 +65,59 @@ public class PerformanceService {
         BigDecimal scoreChange =
                 latest.getScore().subtract(previous.getScore());
 
-        if (scoreChange.compareTo(BigDecimal.ZERO) > 0) {
-            return "Performance improved by " + scoreChange + " points.";
+        BigDecimal workloadChange =
+                latest.getWorkload().subtract(previous.getWorkload());
+
+        if (scoreChange.compareTo(BigDecimal.ZERO) > 0 &&
+                workloadChange.compareTo(BigDecimal.ZERO) < 0) {
+
+            return "Performance improved by " + scoreChange +
+                    " points and workload decreased by " +
+                    workloadChange.abs() + " points.";
+
         }
-        else if (scoreChange.compareTo(BigDecimal.ZERO) < 0) {
-            return "Performance decreased by " +
-                    scoreChange.abs() + " points.";
+        else if (scoreChange.compareTo(BigDecimal.ZERO) > 0 &&
+                workloadChange.compareTo(BigDecimal.ZERO) > 0) {
+
+            return "Performance improved by " + scoreChange +
+                    " points, but workload increased by " +
+                    workloadChange + " points.";
+
+        }
+        else if (scoreChange.compareTo(BigDecimal.ZERO) < 0 &&
+                workloadChange.compareTo(BigDecimal.ZERO) > 0) {
+
+            return "Performance decreased by " + scoreChange.abs() +
+                    " points while workload increased by " +
+                    workloadChange + " points. This may require attention.";
+
+        }
+        else if (scoreChange.compareTo(BigDecimal.ZERO) < 0 &&
+                workloadChange.compareTo(BigDecimal.ZERO) < 0) {
+
+            return "Performance decreased by " + scoreChange.abs() +
+                    " points while workload also decreased by " +
+                    workloadChange.abs() + " points.";
+
+        }
+        else if (scoreChange.compareTo(BigDecimal.ZERO) == 0 &&
+                workloadChange.compareTo(BigDecimal.ZERO) > 0) {
+
+            return "Performance remained unchanged while workload increased by " +
+                    workloadChange + " points.";
+
+        }
+        else if (scoreChange.compareTo(BigDecimal.ZERO) == 0 &&
+                workloadChange.compareTo(BigDecimal.ZERO) < 0) {
+
+            return "Performance remained unchanged while workload decreased by " +
+                    workloadChange.abs() + " points.";
+
         }
         else {
-            return "Performance remained unchanged.";
+
+            return "Performance and workload remained unchanged.";
+
         }
     }
 }
