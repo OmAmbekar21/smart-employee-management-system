@@ -18,7 +18,9 @@ function Navbar({ setActivePage }) {
           Employees
         </span>
 
-        <span>Performance</span>
+        <span onClick={() => setActivePage('performance')}>
+          Performance
+        </span>
       </div>
     </nav>
   )
