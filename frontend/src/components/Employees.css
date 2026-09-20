@@ -1,16 +1,20 @@
 main {
-  padding: 32px;
+  padding: 40px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
 main h1 {
-  margin-bottom: 8px;
+  margin: 0 0 8px;
+  font-size: 32px;
+  color: #111827;
+  letter-spacing: -0.5px;
 }
 
 main > p {
+  margin: 0 0 32px;
   color: #6b7280;
-  margin-bottom: 28px;
+  font-size: 15px;
 }
 
 .employee-list {
@@ -20,18 +24,39 @@ main > p {
 }
 
 .employee-card {
-  background-color: #ffffff;
+  background: #ffffff;
   padding: 24px;
-  border-radius: 10px;
   border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.employee-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
 }
 
 .employee-card h3 {
-  margin-top: 0;
-  margin-bottom: 16px;
+  margin: 0 0 18px;
+  font-size: 20px;
+  color: #111827;
 }
 
 .employee-card p {
-  margin: 8px 0;
+  margin: 9px 0;
   color: #4b5563;
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .employee-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 24px;
+  }
 }
