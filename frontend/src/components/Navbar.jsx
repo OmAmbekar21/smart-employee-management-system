@@ -14,7 +14,10 @@ function Navbar({ setActivePage }) {
           Events
         </span>
 
-        <span>Employees</span>
+        <span onClick={() => setActivePage('employees')}>
+          Employees
+        </span>
+
         <span>Performance</span>
       </div>
     </nav>
