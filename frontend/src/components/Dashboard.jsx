@@ -44,9 +44,12 @@ function Dashboard() {
        .then(response => response.json())
        .then(data => {
          const today = new Date()
+         today.setHours(0, 0, 0, 0)
 
          const upcomingEvents = data.filter(event => {
            const eventDate = new Date(event.eventDate)
+           eventDate.setHours(0, 0, 0, 0)
+
            return eventDate >= today
          })
 
