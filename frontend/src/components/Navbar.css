@@ -2,26 +2,35 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 32px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e5e7eb;
+  padding: 18px 40px;
+  background: #111827;
+  color: white;
+  border-bottom: 1px solid #1f2937;
 }
 
 nav h2 {
   margin: 0;
   font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.3px;
 }
 
 nav div {
   display: flex;
-  gap: 24px;
+  align-items: center;
+  gap: 8px;
 }
 
 nav span {
+  padding: 9px 14px;
+  border-radius: 7px;
   cursor: pointer;
-  font-size: 15px;
+  font-size: 14px;
+  color: #d1d5db;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 nav span:hover {
-  color: #2563eb;
+  background-color: #1f2937;
+  color: #ffffff;
 }
